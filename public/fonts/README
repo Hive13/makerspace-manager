@@ -1,1 +1,0 @@
-Bootstrap is located in build/css and therefore looks for the fonts in build/fonts therefore I moved them there.
