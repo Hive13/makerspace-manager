@@ -12,9 +12,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Laracasts\Presenter\PresentableTrait;
 use Laravel\Cashier\Billable;
 use Laravel\Cashier\Contracts\Billable as BillableContract;
-use DraperStudio\Friendable\Traits\Friendable as FriendableTrait;
-use DraperStudio\Friendable\Models\Friend;
-use DraperStudio\Friendable\Status;
+use PackageBackup\Friendable\Traits\Friendable as FriendableTrait;
 
 
 class User extends Model implements AuthenticatableContract,

@@ -157,7 +157,7 @@ return [
          */
         AdamWathan\BootForms\BootFormsServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        DraperStudio\Friendable\ServiceProvider::class,
+        PackageBackup\Friendable\ServiceProvider::class,
 
     ],
 
