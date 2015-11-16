@@ -158,6 +158,8 @@ return [
         AdamWathan\BootForms\BootFormsServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         PackageBackup\Friendable\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
 
     ],
 
