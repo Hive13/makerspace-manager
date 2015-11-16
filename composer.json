@@ -1,0 +1,67 @@
+{
+  "name": "tylergets/makerspacemanager",
+  "description": "Makerspace Manager built on the Laravel Framework.",
+  "keywords": [
+    "framework",
+    "laravel"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=5.5.9",
+    "laravel/framework": "5.1.*",
+    "barryvdh/laravel-debugbar": "^2.0",
+    "barryvdh/laravel-ide-helper": "^2.1",
+    "fxp/composer-asset-plugin": "^1.0",
+    "bower-asset/bootstrap": "^3.3",
+    "adamwathan/bootforms": "^0.7.0",
+    "laracasts/presenter": "^0.2.1",
+    "bower-asset/jquery-pjax": "^1.9",
+    "jacobbennett/pjax": "^0.9.0",
+    "laravel/cashier": "^5.0",
+    "laracasts/flash": "^1.3",
+    "draperstudio/laravel-friendable": "1.0.*@dev",
+    "draperstudio/laravel-service-provider": "1.0.*@dev"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "~4.0",
+    "phpspec/phpspec": "~2.1"
+  },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan clear-compiled",
+      "php artisan ide-helper:generate",
+      "php artisan optimize"
+    ],
+    "pre-update-cmd": [
+      "php artisan clear-compiled"
+    ],
+    "post-update-cmd": [
+      "php artisan optimize"
+    ],
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}
