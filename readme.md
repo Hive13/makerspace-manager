@@ -8,7 +8,7 @@ Pull this repository to a directory.
 Run the following commands:
 
 * composer update
-* npm 
+* npm install
 * cp .env.example .env
 * EDIT THE NEW .ENV FILE WITH YOUR DATABASE INFO/OTHER STUFF. 
 * gulp
