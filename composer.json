@@ -21,6 +21,7 @@
     "laravel/cashier": "^5.0",
     "laracasts/flash": "^1.3",
     "packagebackup/laravel-friendable": "1.0.*@dev"
+
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -48,7 +49,6 @@
       "php artisan optimize"
     ],
     "pre-update-cmd": [
-      "php artisan clear-compiled"
     ],
     "post-update-cmd": [
       "php artisan optimize"
@@ -62,5 +62,7 @@
   },
   "config": {
     "preferred-install": "dist"
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

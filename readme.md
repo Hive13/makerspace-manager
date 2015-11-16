@@ -7,7 +7,7 @@ This is a laravel application to manage a makerspace.
 Pull this repository to a directory.
 Run the following commands:
 
-* composer update
+* composer installer
 * npm install
 * cp .env.example .env
 * EDIT THE NEW .ENV FILE WITH YOUR DATABASE INFO/OTHER STUFF. 
