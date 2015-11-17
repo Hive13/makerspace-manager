@@ -22,7 +22,10 @@ elixir(function (mix) {
             '../../../vendor/bower-asset/jquery/dist/jquery.js',
             '../../../vendor/bower-asset/bootstrap/dist/js/bootstrap.js',
             '../../../vendor/bower-asset/jquery-pjax/jquery.pjax.js',
+            'checkout.js',
+            'stripe-loader.js',
             'pjax-loader.js'
+
         ])
         .version([
             'js/all.js',

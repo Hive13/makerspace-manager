@@ -2,6 +2,10 @@
 
 This is a laravel application to manage a makerspace.
 
+## Dependencies
+
+The application runs on Apache2, MySQL, and NodeJS. 
+
 ## Installation 
 
 Pull this repository to a directory.

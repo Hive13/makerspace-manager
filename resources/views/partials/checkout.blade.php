@@ -1,15 +1,10 @@
 </br>
-{!! Form::open()->action(url('trans')) !!}
-    {!! csrf_field() !!}
-    {!! Form::text('Amount (Dollars)','amount') !!}
-    <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="{{env('STRIPE_KEY')}}"
-            data-name="{{env('SPACE_NAME')}}"
-            data-description="Account Deposit"
-            data-image="{{url('img/logo.svg')}}"
-            data-locale="auto"
-            data-email="{{Auth::User()->email}}"
-            >
-    </script>
+{!! Form::open()->action(url('trans'))->id('stripeCheckoutForm') !!}
+{!! csrf_field() !!}
+{!! Form::text('Amount (Dollars)','amount') !!}
+<div class="javascript-function" data-function="stripeLoader" data-key="{{env('STRIPE_KEY')}}"
+     data-name="{{env('SPACE_NAME')}}" data-image="{{url('img/logo.svg')}}" data-email="{{Auth::User()->email}}"></div>
+<a id="stripeCheckout" class="btn btn-success">Checkout</a>
 </form>
+
+
