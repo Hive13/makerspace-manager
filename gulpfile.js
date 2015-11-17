@@ -16,7 +16,7 @@ elixir(function (mix) {
     mix
         .styles([
             '../../../vendor/bower-asset/bootstrap/dist/css/bootstrap.css',
-            '../../../vendor/bower-asset/bootstrap/dist/css/bootstrap-theme.css'
+            'hive13-theme.css'
         ])
         .scripts([
             '../../../vendor/bower-asset/jquery/dist/jquery.js',

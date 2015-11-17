@@ -15,17 +15,23 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="{{url('/')}}" class="">Home</a></li>
-                <li><a href="{{url('user')}}" class="">Members</a></li>
-                <li><a href="{{url('perm')}}" class="">Permissions</a></li>
-                <li><a href="{{url('transtype')}}" class="">Store</a></li>
-            @if(Auth::check() && Auth::User()->is('admin'))
-                    <li><a href="{{url('admin')}}" class="">Admin</a></li>
-
-                @endif
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Documentation<span class="caret"></span></a>
+                       aria-expanded="false">Space</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{url('user')}}" class="">Members</a></li>
+                        <li><a href="{{url('transtype')}}" class="">Store</a></li>
+                        <li><a href="{{url('perm')}}" class="">Permissions</a></li>
+                        @if(Auth::check() && Auth::User()->is('admin'))
+                            <li><a href="{{url('admin')}}" class="">Admin</a></li>
+
+                        @endif
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Documentation</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{url('docs/permissions')}}">Permissions</a></li>
                         <li><a href="{{url('docs/transactions')}}">Transactions</a></li>
