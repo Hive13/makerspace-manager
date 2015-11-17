@@ -46,6 +46,9 @@
             </tbody>
         </table>
     </div>
+    <h3>Edit Permission</h3>
+    <hr>
+    @include('permissions.partials.create',['update'=>true])
     <h3>Grant Permission</h3>
     <hr>
     @include('permissions.partials.grant')

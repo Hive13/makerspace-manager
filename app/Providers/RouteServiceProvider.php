@@ -27,6 +27,12 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot($router);
+
+        $router->model('user', 'App\Models\User');
+        $router->model('transtype', 'App\Models\TransactionType');
+        $router->model('perm', 'App\Models\Permission');
+
+
     }
 
     /**

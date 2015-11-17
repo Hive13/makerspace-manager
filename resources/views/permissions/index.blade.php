@@ -46,11 +46,7 @@
     @if(Auth::User()->is('admin'))
         <h3>Create Permission</h3>
         <hr>
-        {!! Form::open()->action('perm') !!}
-        {!! Form::text('Name (Slug)','name') !!}
-        {!! Form::text('Description','description') !!}
-        {!! Form::submit() !!}
-        {!! Form::close() !!}
+        @include('permissions.partials.create')
         <h3>Grant Permission</h3>
         <hr>
         @include('permissions.partials.grant')

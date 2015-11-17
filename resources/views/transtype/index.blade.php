@@ -24,14 +24,14 @@
                 <tr>
                     <td>{{$type->name}}</td>
                     <td>{{$type->description}}</td>
-                    <td>{{$type->cost}}</td>
+                    <td>{{$type->present()->typeCost}}</td>
                     <td>{{$type->created_at->format('M j, Y')}}</td>
                     <td><a href="{{url('transtype/'.$type->id.'/edit')}}">Edit</a></td>
 
 
                     @if(Auth::User()->is('admin'))
                         <td>
-                            {!! Form::open()->action('transtype/'.$type->id)->delete() !!}
+                            {!! Form::open()->action(url('transtype/'.$type->id))->delete() !!}
                             {!! Form::submit('Delete')->class('btn btn-danger') !!}
                             {!! Form::close() !!}
                         </td>
@@ -43,6 +43,12 @@
             </tbody>
         </table>
     </div>
+
+    @if(Auth::User()->is('admin'))
+        <h3>Create TransactionType</h3>
+        <hr>
+        @include('transtype.partials.create')
+    @endif
 
 
 @endsection

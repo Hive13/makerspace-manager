@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Seeder;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class ConstantsSeeder extends Seeder
 {
@@ -51,6 +51,7 @@ class ConstantsSeeder extends Seeder
             'name' => 'member_fee',
             'description' => 'Membership Fee',
             'cost' => '50',
+
         ]);
 
 

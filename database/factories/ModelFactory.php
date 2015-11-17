@@ -38,7 +38,7 @@ $factory->define(App\Models\TransactionType::class, function (Faker\Generator $f
     return [
         'name' => $faker->word,
         'description' => 'You purchased a ' . $faker->word,
-        'cost' => rand(-30, -1),
+        'cost' => rand(1, 50),
         'permission_id' => App\Models\Permission::All()->random()->id,
     ];
 });

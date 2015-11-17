@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Auth\Guard;
-use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
 
 class FriendshipController extends Controller
@@ -37,7 +34,7 @@ class FriendshipController extends Controller
     public function postDeclineFriend($id) {
         $declinedFriend = User::find($id);
         $this->user->denyFriendRequest($declinedFriend);
-        Flash::success('You have declined the friend request for '.$declinedFriend->name);
+        Flash::error('You have declined the friend request for ' . $declinedFriend->name);
         return redirect('/');
     }
 

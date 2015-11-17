@@ -61,9 +61,9 @@ class PermissionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($permission)
     {
-        //
+        return $this->edit($permission);
     }
 
     /**
@@ -72,11 +72,11 @@ class PermissionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($permission)
     {
 
         $users = User::All();
-        $permission = Permission::find($id);
+        $permission->load('users');
         $this->authorize('edit-permission', $permission);
 
         return view('permissions.edit')->withPermission($permission)->withUsers($users);
@@ -89,9 +89,12 @@ class PermissionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $permission)
     {
-        //
+        $this->authorize('edit-permission', $permission);
+        $permission->update($request->all());
+        Flash::success('Updated permission');
+        return redirect()->back();
     }
 
     /**
@@ -100,9 +103,8 @@ class PermissionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($permission)
     {
-        $permission = Permission::findOrFail($id);
         $permission->delete();
         return redirect()->back();
     }
