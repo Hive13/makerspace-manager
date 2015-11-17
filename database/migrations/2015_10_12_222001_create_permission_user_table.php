@@ -18,8 +18,8 @@ class CreatePermissionUserTable extends Migration
             $table->boolean('is_master')->default(false);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('permission_id')->references('id')->on('permissions');
+            //$table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('permission_id')->references('id')->on('permissions');
 
         });
     }
