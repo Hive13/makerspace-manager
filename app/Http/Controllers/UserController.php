@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Auth\Guard;
-use Laracasts\Flash\Flash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -69,9 +68,8 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user)
     {
-        $user = User::findOrFail($id);
 
         if($this->auth->isFriendsWith($user) || $this->auth->id = $user->id) {
             return view('user.show')->withUser($user);
