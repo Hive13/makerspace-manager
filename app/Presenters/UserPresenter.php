@@ -14,8 +14,7 @@ class UserPresenter extends Presenter
 {
     public function displayPicture()
     {
-        //return "https://pbs.twimg.com/profile_images/651042665690202112/EIChMlk-_400x400.jpg";
-        return "https://s3.amazonaws.com/uifaces/faces/twitter/" . $this->picture_id . "/128.jpg";
+        return "http://gravatar.com/avatar/" . md5(strtolower(trim("$this->email"))) . "?d=identicon&s=400";
     }
 
     public function lastSeen()

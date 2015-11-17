@@ -127,6 +127,7 @@ class PermissionController extends Controller
                     }
                 }
             }
+            Flash::success('Gave ' . $user->name . ' all permissions.');
             return redirect()->back();
         }
 

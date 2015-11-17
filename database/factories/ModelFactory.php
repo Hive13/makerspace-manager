@@ -13,7 +13,6 @@
 
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 
-    $pictureID = json_decode(file_get_contents('http://uifaces.com/api/v1/random'))->username;
     return [
         'name' => $faker->name,
         'email' => $faker->email,
@@ -21,7 +20,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
         'key_id' => str_random(12),
         'last_seen' => $faker->dateTime,
-        'picture_id' => $pictureID,
+        'picture_id' => '1',
         'balance' => '564564',
     ];
 });
