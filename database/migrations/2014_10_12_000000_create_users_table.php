@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->integer('balance')->default('0');
+            $table->double('balance', 12, 2)->default(0);
             $table->string('key_id')->nullable();
             $table->timestamp('last_seen')->nullable();
             $table->string('picture_id')->nullable();

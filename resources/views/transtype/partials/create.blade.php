@@ -10,6 +10,5 @@
 {!! Form::text('Description','description') !!}
 {!! Form::select('Attached Permission (optional)','permission_id',$permissions->getSelector(['none'=>'None'])) !!}
 {!! Form::text('Cost (Optional)','cost') !!}
-{!! Form::checkbox('Purchasable?','purchasable') !!}
 {!! Form::submit() !!}
 {!! Form::close() !!}

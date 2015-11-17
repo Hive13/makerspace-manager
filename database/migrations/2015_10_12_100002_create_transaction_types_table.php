@@ -17,8 +17,7 @@ class CreateTransactionTypesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('permission_id')->nullable();
-            $table->integer('cost')->nullable();
-            $table->boolean('purchasable')->default(false);
+            $table->double('cost', 12, 2)->nullable();
             $table->boolean('locked')->default(false);
             $table->timestamps();
         });
