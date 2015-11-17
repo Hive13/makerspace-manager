@@ -98,9 +98,8 @@ class TransactionTypeController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($transType)
     {
-        $transType = TransactionType::find($id);
         if ($transType->locked) {
             Flash::error('Sorry, this permission is essential to this application.');
         } else {
