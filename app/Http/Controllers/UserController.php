@@ -26,16 +26,17 @@ class UserController extends Controller
     {
         $friendships = $this->auth->getAcceptedFriendships();
 
-
-        //Sigh... there has to be a better way to do this :(
         $returnArray = [];
         foreach($friendships as $friend) {
             if($friend->sender_id == $this->auth->id) {
-                $returnArray[] = $friend->recipient;
+                $returnArray[] = $friend->id;
             } else {
-                $returnArray[] = $friend->sender;
+                $returnArray[] = $friend->id;
             }
         }
+
+        $returnArray = User::find($returnArray);
+
 
         $users = User::All()->diff($returnArray)->diff([$this->auth]);
         return view('user.index')->withFriends($returnArray)->withUsers($users);
@@ -68,7 +69,7 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user)
+    public function show(User $user)
     {
 
         if($this->auth->isFriendsWith($user) || $this->auth->id = $user->id) {
@@ -85,9 +86,9 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+
     }
 
     /**

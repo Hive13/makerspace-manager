@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Database\Migrations\Migration;
+    use Illuminate\Database\Schema\Blueprint;
 
-class CreateTransactionsTable extends Migration
+    class CreateTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,8 @@ class CreateTransactionsTable extends Migration
             $table->increments('id');
             $table->integer('transaction_type_id');
             $table->integer('user_id'); //App\Models\User
-            $table->integer('amount');
-            $table->integer('running');
+            $table->decimal('amount', 8, 2);
+            $table->decimal('running', 8, 2);
             $table->string('description')->nullable();
             $table->string('stripe_id')->nullable();
             $table->timestamps();

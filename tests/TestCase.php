@@ -1,13 +1,13 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase
+    class TestCase extends Orchestra\Testbench\TestCase
 {
     /**
      * The base URL to use while testing the application.
      *
      * @var string
      */
-    protected $baseUrl = 'http://localhost';
+        protected $baseUrl = 'http://localhost:8000';
 
     /**
      * Creates the application.
@@ -22,4 +22,12 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+        protected function configureDatabase() {
+
+            $db = new DBM;
+            $db->addConnection(['driver' => 'sqlite', 'database' => ':memory:', 'charset' => 'utf8', 'collation' => 'utf8_unicode_ci', 'prefix' => '',]);
+            $db->bootEloquent();
+            $db->setAsGlobal();
+        }
 }

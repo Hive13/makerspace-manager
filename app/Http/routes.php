@@ -19,8 +19,17 @@ Route::resource('user', 'UserController');
 
 Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
     Route::group(['prefix' => 'v1', 'namespace' => 'v1'], function () {
-        Route::get('perm/{key}/{perm}', 'PermissionController@checkPermission');
+
+        Route::get('ping', function () {
+
+            return "pong";
+        });
+        Route::get('perm/{key}/{perm_name}', 'PermissionController@checkPermission');
         Route::get('trans/{key}/{type}/{amount?}', 'TransactionController@makeTransaction');
+    });
+    Route::get('/{var1?}/{var2?}/{var3?}/{var4?}/{var5?}', function () {
+
+        return "false";
     });
 });
 

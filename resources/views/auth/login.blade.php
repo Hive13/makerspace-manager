@@ -9,7 +9,7 @@
     {!! Form::open()->action('/auth/login') !!}
     {!! Form::text('Email','email') !!}
     {!! Form::password('Password','password') !!}
-    {!! Form::submit() !!}
+    {!! Form::submit('Login') !!}
     {!! Form::close() !!}
 
 @endsection

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0633dd4a4c3c165aee153133a75e50e8",
+    "hash": "54f4737bc05fd0b62ed96ae363ac1a3f",
     "packages": [
         {
             "name": "adamwathan/bootforms",
@@ -255,6 +255,34 @@
                 "responsive",
                 "web"
             ]
+        },
+        {
+            "name": "bower-asset/dropzone",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/enyo/dropzone.git",
+                "reference": "e524e03c83206f652f9a452f8d1b5b25362fc14a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/enyo/dropzone/zipball/e524e03c83206f652f9a452f8d1b5b25362fc14a",
+                "reference": "e524e03c83206f652f9a452f8d1b5b25362fc14a",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/min/dropzone.min.css",
+                    "dist/min/dropzone.min.js"
+                ],
+                "bower-asset-ignore": [
+                    "*",
+                    "!dist",
+                    "!dist/**/*"
+                ]
+            },
+            "description": "Dropzone is an easy to use drag'n'drop library. It supports image previews and shows nice progress bars."
         },
         {
             "name": "bower-asset/jquery",
@@ -595,6 +623,58 @@
                 "package"
             ],
             "time": "2015-10-17 09:47:56"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d0190b156bcca848d401fb80f31f504f37141c8d",
+                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "suggest": {
+                "ext-intl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2015-05-29 06:29:14"
         },
         {
             "name": "jacobbennett/pjax",
@@ -1421,71 +1501,121 @@
             "time": "2015-09-19 14:15:08"
         },
         {
-            "name": "packagebackup/laravel-friendable",
-            "version": "dev-master",
+            "name": "orchestra/database",
+            "version": "v3.1.12",
             "source": {
                 "type": "git",
-                "url": "https://github.com/PackageBackup/draperstudio_laravel-friendable.git",
-                "reference": "60edd0209279c9f8405d7c011ddc8e99f031f226"
+                "url": "https://github.com/orchestral/database.git",
+                "reference": "512efb31563e0e54e5c26e74c9314ea97da49cf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PackageBackup/draperstudio_laravel-friendable/zipball/60edd0209279c9f8405d7c011ddc8e99f031f226",
-                "reference": "60edd0209279c9f8405d7c011ddc8e99f031f226",
+                "url": "https://api.github.com/repos/orchestral/database/zipball/512efb31563e0e54e5c26e74c9314ea97da49cf0",
+                "reference": "512efb31563e0e54e5c26e74c9314ea97da49cf0",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "~5.0|~5.1",
-                "packagebackup/laravel-service-provider": "1.0.*@dev",
-                "php": ">=5.5.9"
+                "illuminate/contracts": "~5.1.0",
+                "illuminate/database": "~5.1.0",
+                "php": ">=5.5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "PackageBackup\\Friendable\\": "src/"
+                    "Orchestra\\Database\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "description": "Friendable Polymorphic Eloquent Models for Laravel 5",
-            "time": "2015-09-06 12:03:53"
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mior Muhammad Zaki",
+                    "email": "crynobone@gmail.com",
+                    "homepage": "https://github.com/crynobone"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell"
+                }
+            ],
+            "description": "Database Component for Orchestra Platform",
+            "keywords": [
+                "database",
+                "orchestra-platform",
+                "orchestral"
+            ],
+            "time": "2015-11-08 23:17:49"
         },
         {
-            "name": "packagebackup/laravel-service-provider",
-            "version": "dev-master",
+            "name": "orchestra/testbench",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/PackageBackup/draperstudio_service-provider.git",
-                "reference": "757e9b8556c4fb727d44e525522c61337131ba22"
+                "url": "https://github.com/orchestral/testbench.git",
+                "reference": "186c2056d79f2cd06bb61e5dbaeffe8a3bfbd065"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PackageBackup/draperstudio_service-provider/zipball/757e9b8556c4fb727d44e525522c61337131ba22",
-                "reference": "757e9b8556c4fb727d44e525522c61337131ba22",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/186c2056d79f2cd06bb61e5dbaeffe8a3bfbd065",
+                "reference": "186c2056d79f2cd06bb61e5dbaeffe8a3bfbd065",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.0|~5.1",
-                "php": ">=5.5.9"
+                "fzaninotto/faker": "~1.4",
+                "laravel/framework": "~5.1.11",
+                "orchestra/database": "~3.1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "behat/behat": "~2.5",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "behat/behat": "Allow to use Behat for testing your Laravel Application/Package (~2.5).",
+                "phpunit/phpunit": "Allow to use PHPUnit for testing your Laravel Application/Package (~4.0)."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "PackageBackup\\ServiceProvider\\": "src/"
+                    "Orchestra\\Testbench\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "description": "DRY Service Provider for Laravel 5 Packages",
-            "time": "2015-09-06 11:58:31"
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mior Muhammad Zaki",
+                    "email": "crynobone@gmail.com",
+                    "homepage": "https://github.com/crynobone"
+                }
+            ],
+            "description": "Laravel Package Unit Testing Helper",
+            "homepage": "http://orchestraplatform.com/docs/latest/components/testbench/",
+            "keywords": [
+                "BDD",
+                "TDD",
+                "laravel",
+                "orchestra-platform",
+                "orchestral",
+                "testing"
+            ],
+            "time": "2015-10-15 22:59:47"
         },
         {
             "name": "paragonie/random_compat",
@@ -2632,58 +2762,6 @@
             "time": "2015-06-14 21:17:01"
         },
         {
-            "name": "fzaninotto/faker",
-            "version": "v1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d0190b156bcca848d401fb80f31f504f37141c8d",
-                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~1.5"
-            },
-            "suggest": {
-                "ext-intl": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "time": "2015-05-29 06:29:14"
-        },
-        {
             "name": "hamcrest/hamcrest-php",
             "version": "v1.2.2",
             "source": {
@@ -3751,11 +3829,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "packagebackup/laravel-friendable": 20
-    },
-    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.5.9"

@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Database\Migrations\Migration;
+    use Illuminate\Database\Schema\Blueprint;
 
-class CreateTransactionTypesTable extends Migration
+    class CreateTransactionTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class CreateTransactionTypesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('permission_id')->nullable();
-            $table->double('cost', 12, 2)->nullable();
+            $table->decimal('cost', 8, 2)->nullable();
             $table->boolean('locked')->default(false);
             $table->timestamps();
         });

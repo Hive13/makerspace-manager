@@ -31,5 +31,6 @@ elixir(function (mix) {
             'js/all.js',
             'css/all.css'
         ])
+        .phpUnit()
         .livereload()
 });

@@ -25,7 +25,6 @@ class AppServiceProvider extends ServiceProvider
     {
         if (env('APP_DEBUG')) {
             $this->app->register('Barryvdh\Debugbar\ServiceProvider');
-            $this->app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
         }
     }
 }
