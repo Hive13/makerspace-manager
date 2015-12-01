@@ -114,6 +114,7 @@
 				$profilePic = $request->file('file');
 				$id = md5($profilePic);
 				$profilePic->move(public_path('/img/pp/'), $id);
+				unlink(public_path('/img/pp/' . $user->picture_id));
 				$user->picture_id = $id;
 			}
 
