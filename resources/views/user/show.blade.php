@@ -32,7 +32,6 @@
                 {!! Form::close() !!}
             </div>
         </div>
-        @if($user->id != Auth::User()->id)
             <div class="row">
                 <div class="col-sm-4">
                     <h3>Buy a drink</h3>
@@ -42,7 +41,6 @@
                     {!! Form::submit() !!}
                 </div>
             </div>
-        @endif
     </div>
     <hr>
 

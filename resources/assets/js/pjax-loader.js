@@ -1,9 +1,7 @@
 function loadPageFunctions() {
     $('.javascript-function').each(function (index, element) {
         var pageFunction = $(element).attr('data-function').toString();
-        console.log('Testing... ' + pageFunction);
         var fn = window[pageFunction];
-        console.log(fn);
         if (typeof fn === "function") {
             console.log('Applying' + pageFunction);
             fn.apply(null, [element]);

@@ -1,116 +1,157 @@
 <?php
 
-namespace App\Http\Controllers;
+	namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Models\User;
-use Illuminate\Auth\Guard;
-use Illuminate\Http\Request;
+	use App\Http\Requests;
+	use App\Models\User;
+	use Illuminate\Auth\Guard;
+	use Illuminate\Http\Request;
+	use Illuminate\Support\Facades\Hash;
+	use Laracasts\Flash\Flash;
 
-class UserController extends Controller
-{
+	class UserController extends Controller {
 
-    private $auth;
+		private $auth;
 
-    public function __construct(Guard $guard) {
-        $this->auth = $guard->user();
-        $this->middleware('auth');
-    }
+		public function __construct(Guard $guard) {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $friendships = $this->auth->getAcceptedFriendships();
+			$this->auth = $guard->user();
+			$this->middleware('auth');
+		}
 
-        $returnArray = [];
-        foreach($friendships as $friend) {
-            if($friend->sender_id == $this->auth->id) {
-                $returnArray[] = $friend->id;
-            } else {
-                $returnArray[] = $friend->id;
-            }
-        }
+		/**
+		 * Display a listing of the resource.
+		 *
+		 * @return \Illuminate\Http\Response
+		 */
+		public function index() {
 
-        $returnArray = User::find($returnArray);
+			$friendships = $this->auth->getAcceptedFriendships();
 
+			$returnArray = [];
+			foreach ($friendships as $friend) {
+				if ($friend->sender_id == $this->auth->id) {
+					$returnArray[] = $friend->id;
+				} else {
+					$returnArray[] = $friend->id;
+				}
+			}
 
-        $users = User::All()->diff($returnArray)->diff([$this->auth]);
-        return view('user.index')->withFriends($returnArray)->withUsers($users);
-    }
+			$returnArray = User::find($returnArray);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+			$users = User::All()->diff($returnArray)->diff([$this->auth]);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+			return view('user.index')->withFriends($returnArray)->withUsers($users);
+		}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
+		/**
+		 * Show the form for creating a new resource.
+		 *
+		 * @return \Illuminate\Http\Response
+		 */
+		public function create() {
+			//
+		}
 
-        if($this->auth->isFriendsWith($user) || $this->auth->id = $user->id) {
-            return view('user.show')->withUser($user);
-        } else {
-            return redirect(url('user'));
-        }
+		/**
+		 * Store a newly created resource in storage.
+		 *
+		 * @param  \Illuminate\Http\Request $request
+		 *
+		 * @return \Illuminate\Http\Response
+		 */
+		public function store(Request $request) {
+			//
+		}
 
-    }
+		/**
+		 * Display the specified resource.
+		 *
+		 * @param  int $id
+		 *
+		 * @return \Illuminate\Http\Response
+		 */
+		public function show(User $user) {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
+			if ($this->auth->id == $user->id) {
+				return redirect(url('user/' . $user->id . '/edit'));
+			}
+			if ($this->auth->isFriendsWith($user)) {
+				return view('user.show')->withUser($user);
+			} else {
+				return redirect(url('user'));
+			}
 
-    }
+		}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+		/**
+		 * Show the form for editing the specified resource.
+		 *
+		 * @param  int $id
+		 *
+		 * @return \Illuminate\Http\Response
+		 */
+		public function edit(User $user) {
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-}
+			$this->authorize('edit-profile');
+
+			return view('user.edit')->withUser($user);
+		}
+
+		/**
+		 * Update the specified resource in storage.
+		 *
+		 * @param  \Illuminate\Http\Request $request
+		 * @param  int                      $id
+		 *
+		 * @return \Illuminate\Http\Response
+		 */
+		public function update(Requests\UpdateProfileRequest $request, User $user) {
+
+			$this->authorize('edit-profile');
+
+			if ($request->hasFile('file')) {
+				$profilePic = $request->file('file');
+				$id = md5($profilePic);
+				$profilePic->move(public_path('/img/pp/'), $id);
+				$user->picture_id = $id;
+			}
+
+			foreach ($request->only(['name', 'email']) as $key => $value) {
+				$user->$key = $value;
+			}
+			$user->save();
+
+			return redirect()->back();
+		}
+
+		/**
+		 * Remove the specified resource from storage.
+		 *
+		 * @param  int $id
+		 *
+		 * @return \Illuminate\Http\Response
+		 */
+		public function destroy($id) {
+			//
+		}
+
+		public function changePassword(Request $request) {
+
+			$user = $this->auth;
+
+			if (Hash::check($request->input('password'), $user->password)) {
+
+				$user->password = Hash::make($request->input('new_password'));
+				$user->save();
+				Flash::success('Password changed successfully.');
+
+			} else {
+
+				Flash::error('Invalid password');
+			}
+
+			return redirect()->back();
+
+		}
+	}

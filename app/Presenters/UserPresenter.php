@@ -14,7 +14,12 @@ class UserPresenter extends Presenter
 {
     public function displayPicture()
     {
-        return "http://gravatar.com/avatar/" . md5(strtolower(trim("$this->email"))) . "?d=identicon&s=400";
+
+        if (is_null($this->picture_id)) {
+            return "http://gravatar.com/avatar/" . md5(strtolower(trim("$this->email"))) . "?d=identicon&s=400";
+        }
+
+        return url('img/pp/' . $this->picture_id);
     }
 
     public function lastSeen()

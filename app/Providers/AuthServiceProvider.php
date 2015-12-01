@@ -26,14 +26,28 @@ class AuthServiceProvider extends ServiceProvider
     {
         parent::registerPolicies($gate);
 
-        $gate->define('edit-permission', function ($user, $permission) {
+        $gate->before(function ($user, $ability) {
+
             if ($user->is('admin')) {
                 return true;
             }
+        });
+
+        $gate->define('edit-permission', function ($user, $permission) {
             if ($user->permissions->contains($permission->id)) {
                 return $user->permissions->find($permission->id)->pivot->is_master;
             }
             return false;
         });
+
+        $gate->define('edit-profile', function ($user, $profile) {
+
+            if ($user->id == $profile->id) {
+                return true;
+            }
+
+            return false;
+        });
+
     }
 }
