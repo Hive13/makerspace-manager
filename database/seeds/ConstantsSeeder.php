@@ -34,14 +34,12 @@
 
         \App\Models\TransactionType::create([
             'name' => 'stripe_deposit',
-            'description' => 'Deposit from Stripe', 'cost' => 0,
-            'locked' => 'true',
+            'description' => 'Deposit from Stripe', 'cost' => 0, 'locked' => true,
         ]);
 
         \App\Models\TransactionType::create([
             'name' => 'user_gift',
-            'description' => 'Gift from/to another user.', 'cost' => 0,
-            'locked' => 'true',
+            'description' => 'Gift from/to another user.', 'cost' => 0, 'locked' => true,
         ]);
 
         \App\Models\TransactionType::create([
