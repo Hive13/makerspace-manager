@@ -15,8 +15,7 @@ require('laravel-elixir-livereload');
 elixir(function (mix) {
     mix
         .styles([
-            '../../../vendor/bower-asset/bootstrap/dist/css/bootstrap.css',
-            'hive13-theme.css'
+            '../../../vendor/bower-asset/bootstrap/dist/css/bootstrap.css'
         ])
         .scripts([
             '../../../vendor/bower-asset/jquery/dist/jquery.js',
