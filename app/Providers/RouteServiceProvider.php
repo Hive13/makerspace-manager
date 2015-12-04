@@ -31,6 +31,8 @@ class RouteServiceProvider extends ServiceProvider
         $router->model('user', 'App\Models\User');
         $router->model('transtype', 'App\Models\TransactionType');
         $router->model('perm', 'App\Models\Permission');
+        $router->model('var', 'App\Models\Variable');
+
 
 
     }

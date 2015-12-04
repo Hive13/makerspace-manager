@@ -48,5 +48,20 @@
     </div>
     The API will return a document containing either "true" or "false" in plain text if the transaction is successful.
     </p>
+    <h3>Variables</h3>
+    <p>
+        Variables can be get and set using a simple API. Variables can fire callbacks on get/set events. All variable events are logged.
+    <h4>Get Variable</h4>
+    <div class="well">
+        {{url('api/v1/var/get')}}/{VAR_NAME}
+    </div>
+    The API will return a document containing the value of the variable, or "false" when nothing is found.
+    <b>Because the API returns nothing but a document containing "false" to help tiny embedded devices, it is not recommended to use "true" and "false" as variable values. Use 0 and 1 instead.</b>
+    <h4>Set Variable</h4>
+    <div class="well">
+        {{url('api/v1/var/set/')}}/{VAR_NAME}/{VAR_VALUE}/{KEY_ID?}
+    </div>
+    The API will return a document containing either "true" or "false" in plain text if the transaction is successful.
+    </p>
 
 @endsection

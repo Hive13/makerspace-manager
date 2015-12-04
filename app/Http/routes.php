@@ -28,6 +28,9 @@
 			});
 			Route::get('perm/{key}/{perm_name}', 'PermissionController@checkPermission');
 			Route::get('trans/{key}/{type}/{amount?}', 'TransactionController@makeTransaction');
+			Route::get('var/get/{var_name}/{key?}','VariableController@get');
+			Route::get('var/set/{var_name}/{var_value}/{key?}','VariableController@set');
+			Route::get('var/add/{var_name}/{var_value}/{key?}','VariableController@add');
 		});
 		Route::get('/{var1?}/{var2?}/{var3?}/{var4?}/{var5?}', function () {
 
@@ -52,3 +55,5 @@
 	Route::controller('admin', 'AdminController');
 
 	Route::resource('transtype', 'TransactionTypeController');
+
+	Route::resource('var','VariableController');

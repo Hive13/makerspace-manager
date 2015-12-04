@@ -20,11 +20,12 @@
                        aria-expanded="false">Space</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{url('user')}}" class="">Members</a></li>
-                        <li><a href="{{url('transtype')}}" class="">Store</a></li>
+                        <li><a href="{{url('transtype')}}" class="">Charges</a></li>
                         <li><a href="{{url('perm')}}" class="">Permissions</a></li>
-                        @if(Auth::check() && Auth::User()->is('admin'))
+                        <li><a href="{{url('var')}}" class="">Variables</a></li>
+                    @if(Auth::check() && Auth::User()->is('admin'))
+                            <li><a href="{{url('callbacks')}}" class="">Callbacks</a></li>
                             <li><a href="{{url('admin')}}" class="">Admin</a></li>
-
                         @endif
 
                     </ul>
