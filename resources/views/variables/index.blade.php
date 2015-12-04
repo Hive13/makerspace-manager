@@ -27,12 +27,12 @@
 
                 @if(Auth::User()->is('admin'))
                             <td>
-                                {!! Form::open()->action('var/'.$variable->id)->update() !!}
+                                {!! Form::open()->action('/var/'.$variable->id)->update() !!}
                                 {!! Form::submit('Edit')->class('btn btn-default') !!}
                                 {!! Form::close() !!}
                             </td>
                         <td>
-                            {!! Form::open()->action('var/'.$variable->id)->delete() !!}
+                            {!! Form::open()->action('/var/'.$variable->id)->delete() !!}
                             {!! Form::submit('Delete')->class('btn btn-danger') !!}
                             {!! Form::close() !!}
                         </td>
@@ -44,5 +44,17 @@
             </tbody>
         </table>
     </div>
+    @if(Auth::User()->is('admin'))
+        <h2>
+            Create Variable
+        </h2>
+        <hr>
+        {!! Form::open()->action('var') !!}
+        {!! Form::text('Name (Slug)','slug') !!}
+        {!! Form::select('Set Permission','set_permission_id',$permissions->getSelector(['none'=>'None'])) !!}
+        {!! Form::select('Get Permission','get_permission_id',$permissions->getSelector(['none'=>'None'])) !!}
+        {!! Form::submit() !!}
+        {!! Form::close() !!}
+    @endif
 
 @endsection

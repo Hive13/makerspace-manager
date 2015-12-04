@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
+use App\Models\Permission;
 use App\Models\Variable;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class VariableController extends Controller
 {
@@ -18,7 +17,9 @@ class VariableController extends Controller
     public function index()
     {
         $variables = Variable::All();
-        return view('variables.index')->withVariables($variables);
+        $permissions = Permission::All();
+
+        return view('variables.index')->withVariables($variables)->withPermissions($permissions);
     }
 
     /**
@@ -39,7 +40,12 @@ class VariableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $var = new Variable($request->all());
+        if ($var->save()) {
+            return redirect('/var');
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**

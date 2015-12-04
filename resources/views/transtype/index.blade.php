@@ -12,7 +12,7 @@
                 <th class="text-center">Description</th>
                 <th class="text-center">Cost</th>
                 <th class="text-center">Created At</th>
-                <th class="text-center">Edit</th>
+                <th class="text-center">Details</th>
                 @if(Auth::User()->is('admin'))
 
                     <th class="text-center">Delete</th>
@@ -26,7 +26,7 @@
                     <td>{{$type->description}}</td>
                     <td>{{$type->present()->typeCost}}</td>
                     <td>{{$type->created_at->format('M j, Y')}}</td>
-                    <td><a href="{{url('transtype/'.$type->id.'/edit')}}">Edit</a></td>
+                    <td><a href="{{url('transtype/'.$type->id.'/edit')}}">Details</a></td>
 
 
                     @if(Auth::User()->is('admin'))

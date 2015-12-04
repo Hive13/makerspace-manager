@@ -19,7 +19,7 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\PermissionChecked' => [
             'App\Listeners\UpdateLastSeen',
             'App\Listeners\LogActivity'
-        ]
+        ],
     ];
 
     /**

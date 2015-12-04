@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Laracasts\Flash\Flash;
 
 class PermissionController extends Controller
@@ -65,6 +66,10 @@ class PermissionController extends Controller
      */
     public function show($permission)
     {
+        $secret = Crypt::encrypt(['perm_id' => $permission->id]);
+
+        dd($secret);
+
         return $this->edit($permission);
     }
 

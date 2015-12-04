@@ -14,10 +14,10 @@ class VariableController extends Controller
     public function get($varName, $keyId = 0)
     {
         $variable = Variable::firstOrCreate(['slug' => $varName]);
-        if (!is_null($variable->get_permission_id)) {
+        if ($variable->get_permission_id > 0) {
             if ($keyId > 0) {
                 $user = User::byKey($keyId);
-                if (!$user->has($variable->set_permission)) {
+                if (!$user->has($variable->get_permission)) {
                     return response("false", 500);
                 } else {
                     return $variable->value;
@@ -26,13 +26,14 @@ class VariableController extends Controller
         } else {
             return $variable->value;
         }
+        return response("false", 500);
     }
 
     public function set($varName, $varValue, $keyId = 0)
     {
         $variable = Variable::firstOrCreate(['slug' => $varName]);
 
-        if (!is_null($variable->set_permission_id)) {
+        if ($variable->set_permission_id > 0) {
             if ($keyId > 0) {
                 $user = User::byKey($keyId);
                 if (!$user->has($variable->set_permission)) {
