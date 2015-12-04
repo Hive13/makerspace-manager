@@ -17,11 +17,11 @@ $(document).ready(function () {
             $.pjax.submit(event, '#pjax-container')
         })
         .on('pjax:start', function () {
-            $('#pjax-container').fadeOut(100);
+            $('#pjax-container').fadeOut(200);
         })
         .on('pjax:end', function () {
             pageFunction = "";
-            $('#pjax-container').fadeIn(100);
+            $('#pjax-container').fadeIn(200);
             loadPageFunctions();
         });
 });

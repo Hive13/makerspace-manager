@@ -1,11 +1,7 @@
 @extends('layouts.base')
 @section('content')
     <h1>{{env('SPACE_NAME')}} Members</h1>
-    <h2>{{count($friends)}} Friends</h2>
-    <h3>{{count($users)}} Other Members</h3>
-    <hr>
-
-
+    <h2>{{count($friends)}} Friends | {{count($users)}} Other Members</h2>
 
     <div class="row">
         <div class="col-lg-12">
