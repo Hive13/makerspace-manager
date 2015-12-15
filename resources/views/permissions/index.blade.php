@@ -44,12 +44,17 @@
         </table>
     </div>
     @if(Auth::User()->is('admin'))
-        <h3>Create Permission</h3>
         <hr>
-        @include('permissions.partials.create')
-        <h3>Grant Permission</h3>
-        <hr>
-        @include('permissions.partials.grant')
+        <div class="col-md-6">
+            <h3>Create Permission</h3>
+            <hr>
+            @include('permissions.partials.create')
+        </div>
+        <div class="col-md-6">
+            <h3>Grant Permission</h3>
+            <hr>
+            @include('permissions.partials.grant')
+        </div>
     @endif
 
 @endsection

@@ -56,7 +56,8 @@
         {{url('api/v1/var/get')}}/{VAR_NAME}
     </div>
     The API will return a document containing the value of the variable, or "false" when nothing is found.
-    <b>Because the API returns nothing but a document containing "false" to help tiny embedded devices, it is not recommended to use "true" and "false" as variable values. Use 0 and 1 instead.</b>
+    <b>Because the API returns nothing but a document containing "false" on error to help tiny embedded devices, it is
+        very important to verify a 200 status code when using one of these devices.</b>
     <h4>Set Variable</h4>
     <div class="well">
         {{url('api/v1/var/set/')}}/{VAR_NAME}/{VAR_VALUE}/{KEY_ID?}

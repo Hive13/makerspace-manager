@@ -41,15 +41,21 @@
                         {!! Form::close() !!}</td>
                 </tr>
             @empty
-                <td colspan="4">No Permissions</td>
+                <td colspan="4">No Users</td>
             @endforelse
             </tbody>
         </table>
     </div>
-    <h3>Edit Permission</h3>
-    <hr>
-    @include('permissions.partials.create',['update'=>true])
-    <h3>Grant Permission</h3>
-    <hr>
-    @include('permissions.partials.grant')
+    <div class="col-md-6">
+
+        <h3>Edit Permission</h3>
+        <hr>
+        @include('permissions.partials.create',['update'=>true])
+    </div>
+    <div class="col-md-6">
+
+        <h3>Grant Permission</h3>
+        <hr>
+        @include('permissions.partials.grant')
+    </div>
 @endsection

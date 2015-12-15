@@ -57,3 +57,5 @@
 	Route::resource('transtype', 'TransactionTypeController');
 
 	Route::resource('var','VariableController');
+
+Route::resource('callback', 'CallbackController');

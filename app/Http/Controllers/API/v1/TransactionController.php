@@ -13,7 +13,10 @@ class TransactionController extends Controller
     public function makeTransaction($keyID, $typeName, $customAmount = "0")
     {
 
-        $user = User::byKey($keyID);
+
+        if (!$user = User::byKey($keyID)) {
+            return "false";
+        }
 
         $transType = TransactionType::byName($typeName);
 

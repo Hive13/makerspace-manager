@@ -20,4 +20,9 @@ class Permission extends Model
     {
         return $this->belongsToMany('App\Models\User')->withPivot(['is_master', 'created_at']);
     }
+
+    public function activities()
+    {
+        return $this->morphMany('App\Models\Activity', 'activity');
+    }
 }

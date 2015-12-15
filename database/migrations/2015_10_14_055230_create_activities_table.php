@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->string('activity_type');
             $table->integer('activity_id');
             $table->integer('user_id');
-            $table->json('meta_data');
+            $table->json('meta_data')->nullable();
             $table->timestamps();
         });
     }

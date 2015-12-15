@@ -45,7 +45,7 @@
 
 		public static function byKey($KeyID) {
 
-			return User::Where('key_id', $KeyID)->firstOrFail();
+			return User::Where('key_id', $KeyID)->first();
 		}
 
 		/**

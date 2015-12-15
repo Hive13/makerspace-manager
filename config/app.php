@@ -158,6 +158,7 @@ return [
         AdamWathan\BootForms\BootFormsServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class
 
 
     ],

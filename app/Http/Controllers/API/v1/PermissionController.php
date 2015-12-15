@@ -13,9 +13,20 @@ class PermissionController extends Controller
     public function checkPermission($keyID, $permName)
     {
 
-        $user = User::byKey($keyID);
-
         $perm = Permission::byName($permName);
+
+        if (!is_null($perm->learning_user_id)) {
+            $user = User::find($perm->learning_user_id);
+            $user->key_id = $keyID;
+            $user->save();
+            $perm->learning_user_id = NULL;
+            $perm->save();
+        }
+
+        if (!$user = User::byKey($keyID)) {
+            return "false";
+        }
+
 
         event(new PermissionChecked($perm, $user));
 
