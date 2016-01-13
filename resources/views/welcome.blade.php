@@ -103,7 +103,6 @@
             </tbody>
         </table>
     </div>
-    <hr>
 
     <h3>Recent Transactions</h3>
     <div class="text-center">
