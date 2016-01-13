@@ -1,9 +1,10 @@
 <?php
 
-	use App\Models\User;
-	use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Models\User;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-	class APITest extends TestCase {
+class APITest extends TestCase
+{
 
 		use DatabaseTransactions;
 
@@ -55,8 +56,7 @@
 
 			$user = factory('App\Models\User')->create();
 
-			$transtype = factory('App\Models\TransactionType')->make(['permission_id' => 'none']);
-			$transtype->save();
+			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none']);
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
@@ -67,8 +67,7 @@
 
 			$user = factory('App\Models\User')->create();
 
-			$transtype = factory('App\Models\TransactionType')->make(['permission_id' => 'none']);
-			$transtype->save();
+			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none']);
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
@@ -79,11 +78,9 @@
 
 		public function testDeniedTransactionBecauseOfBalance() {
 
-			$user = factory('App\Models\User')->make(['balance' => '1']);
-			$user->save();
+			$user = factory('App\Models\User')->create(['balance' => '1']);
 
-			$transtype = factory('App\Models\TransactionType')->make(['permission_id' => 'none', 'cost' => '100']);
-			$transtype->save();
+			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none', 'cost' => '100']);
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
@@ -92,11 +89,9 @@
 
 		public function testDeniedTransactionBalance() {
 
-			$user = factory('App\Models\User')->make(['balance' => '1']);
-			$user->save();
+			$user = factory('App\Models\User')->create(['balance' => '1']);
 
-			$transtype = factory('App\Models\TransactionType')->make(['permission_id' => 'none', 'cost' => '100']);
-			$transtype->save();
+			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none', 'cost' => '100']);
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
