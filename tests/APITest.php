@@ -56,7 +56,7 @@ class APITest extends TestCase
 
 			$user = factory('App\Models\User')->create();
 
-			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none']);
+			$transtype = factory('App\Models\TransactionType')->create();
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
@@ -67,7 +67,7 @@ class APITest extends TestCase
 
 			$user = factory('App\Models\User')->create();
 
-			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none']);
+			$transtype = factory('App\Models\TransactionType')->create();
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
