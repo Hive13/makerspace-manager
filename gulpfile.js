@@ -18,9 +18,9 @@ elixir(function (mix) {
             ''
         ])
         .scripts([
-            '../../../vendor/bower-asset/jquery/dist/jquery.js',
-            '../../../vendor/bower-asset/bootstrap/dist/js/bootstrap.js',
-            '../../../vendor/bower-asset/jquery-pjax/jquery.pjax.js',
+            '../../../vendor/bower-asset/bower-asset/jquery/dist/jquery.js',
+            '../../../vendor/bower-asset/bower-asset/bootstrap/dist/js/bootstrap.js',
+            '../../../vendor/bower-asset/bower-asset/jquery-pjax/jquery.pjax.js',
             'checkout.js',
             'stripe-loader.js',
             'pjax-loader.js',
