@@ -25,17 +25,19 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Models\Permission::class, function (Faker\Generator $faker) {
-    return ['name' => $faker->slug(6), 'description' => 'You may use the ' . $faker->word . ' machine.',
+    return [
+        'name' => $faker->slug(6),
+        'description' => 'You may use the ' . $faker->word . ' machine.',
     ];
 });
 
 
 $factory->define(App\Models\TransactionType::class, function (Faker\Generator $faker) {
 
-    return ['name' => $faker->slug(6),
+    return [
+        'name' => $faker->slug(6),
         'description' => 'You purchased a ' . $faker->word,
-        'cost' => rand(1, 50),
-        'permission_id' => App\Models\Permission::All()->random()->id,
+        'cost' => rand(1, 50)
     ];
 });
 

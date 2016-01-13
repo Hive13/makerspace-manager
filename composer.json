@@ -21,7 +21,8 @@
     "laravel/cashier": "^5.0",
     "laracasts/flash": "^1.3",
     "orchestra/testbench": "^3.1",
-    "khill/lavacharts": "^2.5"
+    "khill/lavacharts": "^2.5",
+    "doctrine/dbal": "^2.5"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
