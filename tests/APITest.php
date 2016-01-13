@@ -80,7 +80,7 @@ class APITest extends TestCase
 
 			$user = factory('App\Models\User')->create(['balance' => '1']);
 
-			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none', 'cost' => '100']);
+			$transtype = factory('App\Models\TransactionType')->create(['cost' => '100']);
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
@@ -91,7 +91,7 @@ class APITest extends TestCase
 
 			$user = factory('App\Models\User')->create(['balance' => '1']);
 
-			$transtype = factory('App\Models\TransactionType')->create(['permission_id' => 'none', 'cost' => '100']);
+			$transtype = factory('App\Models\TransactionType')->create(['cost' => '100']);
 
 			$response = $this->call('GET', $this->endPoint . 'trans/' . $user->key_id . '/' . $transtype->name);
 
