@@ -122,7 +122,7 @@
 
 		public function denyFriendRequest(User $user) {
 
-			$friendship = Friendship::where('recipient_id', $this->id)->where('sender_id', $user->id)->get()->first();
+			$friendship = Friendship::where('recipient_id', $this->id)->where('sender_id', $user->id)->get();
 
 			return $friendship->delete();
 

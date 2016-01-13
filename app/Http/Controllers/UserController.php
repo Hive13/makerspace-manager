@@ -29,11 +29,11 @@
 			$friendships = $this->auth->getAcceptedFriendships();
 
 			$returnArray = [];
-			foreach ($friendships as $friend) {
-				if ($friend->sender_id == $this->auth->id) {
-					$returnArray[] = $friend->id;
+			foreach ($friendships as $friendship) {
+				if ($friendship->sender_id == $this->auth->id) {
+					$returnArray[] = $friendship->recipient_id;
 				} else {
-					$returnArray[] = $friend->id;
+					$returnArray[] = $friendship->sender_id;
 				}
 			}
 
