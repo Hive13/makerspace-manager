@@ -11,7 +11,7 @@ The application runs on Apache2, MySQL, and NodeJS.
 Pull this repository to a directory.
 Run the following commands:
 
-* composer installer
+* composer install
 * cp .env.example .env
 * EDIT THE NEW .ENV FILE WITH YOUR DATABASE INFO/OTHER STUFF. 
 * php artisan key:generate
