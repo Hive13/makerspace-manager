@@ -15,11 +15,12 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
-        'email' => $faker->email, 'password' => bcrypt('password'),
+        'email' => $faker->email,
+        'password' => bcrypt('password'),
         'remember_token' => str_random(10),
         'key_id' => str_random(12),
         'last_seen' => $faker->dateTime,
-        'picture_id' => '1', 'balance' => '500.0',
+        'balance' => '500.0',
     ];
 });
 
