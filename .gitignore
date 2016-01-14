@@ -1,15 +1,12 @@
 /vendor
 /node_modules
-Homestead.yaml
-Homestead.json
 .env
 /storage/database.sqlite
-/.idea
-.idea/
-.idea
 .DS_Store
 /public/build
 /public/js
 /public/css
 /public/img/pp
 /.vagrant
+/.idea/workspace.xml
+/.idea/tasks.xml

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3852461929">
+    <data-source source="LOCAL" name="PostgreSQL - vagrant@localhost" uuid="e0d5ea73-6d0d-4b70-a33d-294364dce009">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:54320/vagrant</jdbc-url>
+    </data-source>
+  </component>
+</project>

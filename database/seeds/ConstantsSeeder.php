@@ -26,8 +26,7 @@ class ConstantsSeeder extends Seeder
             'email' => 't@y.com',
             'password' => bcrypt('password'),
             'key_id' => '1',
-                                  'balance' => 100,
-
+            'balance' => 100,
         ]);
 
         $tyler->roles()->attach($adminRole);
@@ -50,7 +49,7 @@ class ConstantsSeeder extends Seeder
 
 
         //Myspace Tom Feature
-        User::created(function($user) use ($tyler) {
+        User::created(function ($user) use ($tyler) {
             //$user->befriend($tyler);
         });
     }
