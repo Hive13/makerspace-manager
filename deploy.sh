@@ -45,5 +45,5 @@ npm install
 echo "Copying .env file"
 cp .env.example .env
 
-echo "Generating app k ey"
+echo "Generating app key"
 php artisan key:generate

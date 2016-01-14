@@ -1,0 +1,12 @@
+#!/bin/bash
+for item in $( find /vagrant/provision/vagrant_links ); do
+    if [ -f $item ]; then
+        link="/"$(echo $item | cut -d "/" -f5-)
+        if [ -f $link ]; then
+            rm $link
+            echo "Removed $link"
+        fi
+        ln -s $item $link
+        echo "Linked $item to $link"
+    fi
+done

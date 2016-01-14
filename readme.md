@@ -6,20 +6,17 @@ This is a laravel application to manage a makerspace.
 
 The application runs on Apache2, MySQL, and NodeJS. 
 
+## Development
+
+This project uses vagrant! To start a development server clone this project and run `vagrant up`
+The project will be running on http://localhost:8080
+
 ## Installation 
 
-Pull this repository to a directory.
-Run the following commands:
+Deploy like any other laravel project.
 
-* composer install
-* cp .env.example .env
-* EDIT THE NEW .ENV FILE WITH YOUR DATABASE INFO/OTHER STUFF. 
-* php artisan key:generate
-* php artisan migrate
-* php artisan db:seed --class=ConstantsSeeder
-* npm install
-* gulp
-
-By default in most apache installations youll also need to enable mod_rewrite in your config.
-
-Visit the directory in your browser /public
+The vagrant box uses:
+ * Apache2
+ * PHP
+ * PostgreSQL
+ * Memcached
