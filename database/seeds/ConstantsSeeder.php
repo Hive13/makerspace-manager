@@ -1,11 +1,11 @@
 <?php
 
-    use App\Models\Role;
-    use App\Models\User;
-    use Illuminate\Database\Eloquent\Model;
-    use Illuminate\Database\Seeder;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
-    class ConstantsSeeder extends Seeder
+class ConstantsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,7 +26,7 @@
             'email' => 't@y.com',
             'password' => bcrypt('password'),
             'key_id' => '1',
-            'picture_id' => '1', 'balance' => 100,
+                                  'balance' => 100,
 
         ]);
 
