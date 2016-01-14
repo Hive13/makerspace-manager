@@ -35,14 +35,6 @@ echo "Creating symbolic links"
 chmod 777 /vagrant/provision/vagrant_links/usr/local/bin/reload_links
 /vagrant/provision/vagrant_links/usr/local/bin/reload_links
 
-echo "Configuring Laravel"
-ln -s /vagrant /var/www/laravel
-if [ -f /var/www/laravel/.env ]; then
-    ln -s /vagrant/provision/vagrant.env /var/www/laravel/.env
-fi
-chown -R vagrant:vagrant /var/www/laravel
-chmod -R 775 /var/www/laravel/storage
-
 echo "Configuring Apache"
 a2enmod rewrite
 service apache2 restart
@@ -50,3 +42,12 @@ service apache2 restart
 echo "Configuring PostgreSQL"
 sudo -u postgres bash -c "psql -c \"CREATE USER vagrant WITH PASSWORD 'vagrant';\""
 sudo -u postgres bash -c "psql -c \"CREATE DATABASE vagrant OWNER vagrant;\""
+
+echo "Configuring Laravel"
+ln -s /vagrant /var/www/laravel
+if [ -f /var/www/laravel/.env ]; then
+    ln -s /vagrant/provision/vagrant.env /var/www/laravel/.env
+fi
+chown -R vagrant:vagrant /var/www/laravel
+chmod -R 775 /var/www/laravel/storage
+php artisan migrate --seed
